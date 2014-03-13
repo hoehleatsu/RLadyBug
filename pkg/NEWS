@@ -1,4 +1,14 @@
 ==========================
+Version:  0.7-2
+Release date:  13 Mar 2014
+==========================
+
+Same code, but now on R-forge in order to get automatically built
+binary versions (in case that works). The R-forge suppository also
+works as use case to see if the SVN can ran simultaneously with
+a GitHub distribution.
+
+==========================
 Version:  0.7-1
 Release date:  16 Feb 2013
 ==========================
