@@ -1,0 +1,95 @@
+//////////////////////////////////////////////////////////////////////
+// Author: Michael Hoehle <hoehle@stat.uni-muenchen.de>
+// Date: 8 April 2004
+//
+// This file contains the layout to use in the decision support
+// calculations. I.e. a 4x2 setup with the values from the 
+// informative priors on $T_D$ setup. Better to calculate the
+// predictive posterior using the Score.java program, but
+// for now this illustrates the use of the SimSellke program.
+//
+// Example:
+//   ../../bin/simsellke.sh 4x2.data traj e0
+//
+//////////////////////////////////////////////////////////////////////
+unit 1 1 13 1
+unit 1 2 14 0
+unit 1 3 14 0
+unit 1 4 14 0
+unit 1 5 14 0
+unit 1 6 14 0
+unit 1 7 14 0
+unit 1 8 14 0
+//second row
+unit 2 1 14 0
+unit 2 2 14 0
+unit 2 3 14 0
+unit 2 4 14 0
+unit 2 5 14 0
+unit 2 6 14 0
+unit 2 7 14 0
+unit 2 8 14 0
+//second row
+unit 3 1 14 0
+unit 3 2 14 0
+unit 3 3 14 0
+unit 3 4 14 0
+unit 3 5 14 0
+unit 3 6 14 0
+unit 3 7 14 0
+unit 3 8 14 0
+//4th row
+unit 4 1 14 0
+unit 4 2 14 0
+unit 4 3 14 0
+unit 4 4 14 0
+unit 4 5 14 0
+unit 4 6 14 0
+unit 4 7 14 0
+unit 4 8 14 0
+//5th row
+unit 5 1 14 0
+unit 5 2 14 0
+unit 5 3 14 0
+unit 5 4 14 0
+unit 5 5 14 0
+unit 5 6 14 0
+unit 5 7 14 0
+unit 5 8 14 0
+//6th row
+unit 6 1 14 0
+unit 6 2 14 0
+unit 6 3 14 0
+unit 6 4 14 0
+unit 6 5 14 0
+unit 6 6 14 0
+unit 6 7 14 0
+unit 6 8 14 0
+//7th row
+unit 7 1 14 0
+unit 7 2 14 0
+unit 7 3 14 0
+unit 7 4 14 0
+unit 7 5 14 0
+unit 7 6 14 0
+unit 7 7 14 0
+unit 7 8 14 0
+//8th row
+unit 8 1 14 0
+unit 8 2 14 0
+unit 8 3 14 0
+unit 8 4 14 0
+unit 8 5 14 0
+unit 8 6 14 0
+unit 8 7 14 0
+unit 8 8 14 0
+// Parameter start values are used as parameter values in the SimSellke
+// simulation program. 
+beta 0.001 0.001 (0.125)
+betan 0.001 0.001 (0.018)
+incu 0.001 0.001 (6.697)	0.001 0.001 (0.840)
+inf 0.001 0.001	(1.772) 0.001 0.001 (0.123)
+diag 0.001 0.001 (149.126)	0.001 0.001 (8.737)
+//No data just dummy things -- have to have at least one line.
+//x     y       E       I       R       D
+1	1	19	25	50	31

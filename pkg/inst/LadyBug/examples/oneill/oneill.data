@@ -1,0 +1,38 @@
+//                              \./
+//                             (o o)
+//-------------------------oOOo-(_)-oOOo-------------------------
+// Author: 	Michael Hoehle <hoehle@stat.uni-muenchen.de>
+// Date: 	5 April 2004
+// Description:	Use MCMC to estimate parameters in the 5 point epidemic
+//              in the 5 removal times epidemic (p.126) of the article:
+//              ONeill, P. D. and Roberts, G. O. (1999). Bayesian inference
+//              for partially observed stochastic epidemics. 
+//              J. R. Statist. Soc. A 162, 121--129.
+//
+// Note:        No incubation times and exponential infection times.
+// See also:    mcmc.sir
+//
+// Layout containing one unit with 9 initial susceptibles and one infective
+unit 1 1 9 1
+// beta priors as in the ONeill article
+beta 0.1 1 (0.1)
+//Nothing spatial in the example on so values here do not matter
+betan 0.001 0.001 (0.005)
+//Incubation fixed at some small value epsilon
+incu constant 0.00001
+//Exponential distribution so a Gamma(1,gamma) distrib with prior (0.1,0.1)
+inf 1 1	(1) 0.1 0.1 (0.1)
+//No diagnostic times so values dont matter
+diag 1 1 (1)	1 1 (1)
+//////////////////////////////////////////////////////////////////////
+//The data: Initial infection times have to be fiddles somehow so
+//a valid start configuration is obtained (i.e. ensure epidemic
+//does not die out too early. E and D values do not matter since
+//the E values are fixed according to "incu constant" and D is
+//not part of the model. 
+//x     y       E(ignore)  I    R       D (ignore)
+1	1	0	  (-2)	0	10
+1	1	0	  (-1)	1.52292	10
+1	1	0	  (-1)	1.55004	10
+1	1	0	  (-1)	1.93064	10
+1	1	0	  (-1)	2.67492	10

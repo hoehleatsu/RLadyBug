@@ -1,0 +1,36 @@
+//                              \./
+//                             (o o)
+//-------------------------oOOo-(_)-oOOo-------------------------
+// Author: 	Michael Hoehle <hoehle@stat.uni-muenchen.de>
+// Date: 	5 April 2004
+// Description:	Use MCMC to estimate parameters in the Dewulf dataset
+//              with missing values.
+// See also:    csfv.data
+// 
+
+(options 
+	seed=		1999   //fix seed value
+	incuTimePDF=	gamma  //Distribution of incubation time.
+	infTimePDF=	gamma  //Distribution of the infectious time 
+	diagTimePDF=	gamma  //Distribution of the seroconversion time 
+	meanVar=	false  //Mean variance representation of periods.
+	ignoreE= 	true
+	ignoreI= 	false  //ignore all inf times in the data file?
+	ignoreD= 	false  //ignore all sero times in the data file?
+)
+
+(method mcmc
+	samples=2500 //5000
+	thin=1 //100
+	burnin=0 
+	betaRWsigma=0.1   //not really used in a one unit setup
+	betaNRWsigma=0.1   //not used in a one unit setup. 
+	gammaERWsigma=3  //was 1
+	deltaERWsigma=1  //0.1
+	gammaIRWsigma=1  //0.25
+	deltaIRWsigma=1  //0.1
+	gammaDRWsigma=3  //4
+	deltaDRWsigma=1  //0.1
+	ERWsigma=6 //5
+)
+

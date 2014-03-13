@@ -1,0 +1,33 @@
+if (!exists("meta") || is.null(meta)) meta <- packageDescription("RLadyBug")
+
+year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date)
+vers <- paste("R package version", meta$Version)
+title <- paste(meta$Package, ": ", meta$Title, sep = "")
+
+citHeader("To cite package", sQuote(meta$Package), "in publications use:")
+
+citEntry(
+    entry = "Manual",
+    title = title,
+    author = as.personList(meta$Author),
+    year = year,
+    note = vers,
+    url = meta$URL,
+    textVersion =
+    paste(meta$Author, " (", year, "). ", title, ". ", vers, ". ", meta$URL,
+          sep = "")
+)
+
+citEntry(
+    entry = "Article",
+    title = "RLadyBug -- An {R} package for stochastic epidemic models",
+    author = "Michael H{\"o}hle and Ulrike Feldmann",
+    journal = "Computational Statistics and Data Analysis",
+    year = "2007",
+    volume = "52",
+    number = "2",
+    pages = "680--686",
+    textVersion = paste("Hoehle, M., and Feldmann, U. (2007),",
+        "RLadyBug -- An R package for stochastic epidemic models,",
+        "Computational Statistics and Data Analysis, 52(2), pp. 680--686")
+)

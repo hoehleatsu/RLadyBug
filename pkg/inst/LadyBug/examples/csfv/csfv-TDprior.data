@@ -1,0 +1,57 @@
+//////////////////////////////////////////////////////////////////////
+// A subset of the experiment by Dewulf. et al., "An experimental
+// infection with classical swine fever in E2 sub-unit marker-vaccine
+// vaccinated and in non-vaccinated pigs", Vaccine 19, pp. 475-482.
+//
+//
+// Data used in Section 4.2 in the article by Hoehle et.al.
+// The data are fed to LadyBug 2.0 program.
+// (http://www.stat.uni-muenchen.de/~hoehle). Note that the exposure
+// time is specified with an artificially assumed fixed incubation time 
+// of 6 days. This is rather ad hoc but allows us to calculate ML
+// estimates. In case a proper treatment of the missing value problem
+// is to be made use the "ignoreE=true" option in the ".sir" file.
+//
+// See also mcmc.sir 
+//
+// Author: Michael Hoehle <hoehle@stat.uni-muenchen.de>
+// Date: 6 April 2004
+//////////////////////////////////////////////////////////////////////
+unit 1 1 14 0
+unit 1 2 14 1
+beta 0.001 0.001 (0.1)
+betan 0.001 0.001 (0.01)
+incu 0.001 0.001 (60)	0.001 0.001 (10)
+inf 0.001 0.001	(100) 0.001 0.001 (10)
+//Prior deduced from the Colijn et al. (1997) paper 
+diag 1500 10 (150) 100 10 (10)
+//x     y       E       I       R       D
+1	1	19	25	50	31
+1	1	19	25	61	33
+1	1	(26)	(32)	33	CE
+1	1	23	29	51	35
+1	1	23	29	35	35
+1	1	19	25	44	35
+1	1	25	31	61	43
+1	1	17	23	27	27
+1	1	25	31	48	CE
+1	1	17	23	28	CE
+1	1	25	31	39	39
+1	1	21	27	46	41
+1	1	23	29	35	35
+1	1	23	29	31	35
+1	2	15	21	40	31
+1	2	0	3	9	11
+1	2	7	13	41	23
+1	2	17	23	27	31
+1	2	7	13	15	19
+1	2	9	15	19	21
+1	2	7	13	21	27
+1	2	7	13	21	21
+1	2	7	13	21	23
+1	2	9	15	32	25
+1	2	15	21	46	39
+1	2	13	19	27	25
+1	2	17	23	50	31
+1	2	9	15	40	27
+1	2	(13)	(19)	45	31

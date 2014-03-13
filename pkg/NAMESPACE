@@ -1,0 +1,82 @@
+### imports
+
+# general
+import(graphics)
+import(stats)
+import(grDevices)
+import(utils)
+
+# LadyBug-specific
+import(methods)
+#hoehle@2013-02-16:import(rJava) generated warning: replacing previous import
+#'show' when loading 'rJava'. Take call from RWeka package instead.
+importFrom("rJava", ".jaddClassPath", ".jarray", ".jcall", ".jcast",
+           ".jevalArray", ".jfield", ".jfindClass", ".jinit", ".jlong",
+           ".jnew", ".jnull", ".jpackage")
+
+importFrom(coda, mcmc)
+importFrom(MASS, kde2d)
+importFrom(boa, boa.hpd)
+
+
+### exports
+
+# TODO: Reduce list at some point
+
+export("RLadyBug.options",
+       "reset.RLadyBug.options")
+
+export("ladybugExample",
+       "seir",
+       "readSpecFile")
+       
+exportClasses("LBInference",
+              "LBInferenceML",
+              "LBInferenceMCMC",
+              "LBLayout",
+              "LBOptions",
+              "LBOptionsMCMC",
+              "LBOptionsML",
+              "LBExperiment")
+
+exportMethods("layoutMatrixes",
+              "infValues<-" ,
+              "infValues",
+              "samplePaths",
+              "initialize",
+              "seed<-",
+              "seed",
+              "LBModel<-" ,
+              "LBModel",
+              "ignoreData<-",
+              "ignoreData",
+              "initBeta<-" ,
+              "initBeta",
+              "initBetaN<-" ,
+              "initBetaN",
+              "initIncu<-" ,
+              "initIncu",
+              "initInf<-" ,
+              "initInf",
+              "initDia<-" ,
+              "initDia",
+              "LBOptions<-" ,
+              "LBOptions",
+              "LBInits",
+              "LBInits<-" ,
+              "optionsAsDataFrame",
+              "initsAsDataFrame",
+              "algo<-" ,
+              "algo",
+              "randomWalk<-" ,
+              "randomWalk",
+              "layoutMatrixes",
+              "layoutAsDataFrame" ,
+              "show" ,
+              "plot" ,
+              "summary",
+              "simulate",
+              "data2events" ,
+              "writeOptionFile",
+              "R0"
+)

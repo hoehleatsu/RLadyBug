@@ -1,0 +1,42 @@
+//                              \./
+//                             (o o)
+//-------------------------oOOo-(_)-oOOo-------------------------
+// Author: 	Michael Hoehle <hoehle@stat.uni-muenchen.de>
+// Date: 	5 April 2004
+// Description:	Use MCMC to estimate parameters in the 5 point epidemic
+//              in the 5 removal times epidemic (p.126) of the article:
+//              ONeill, P. D. and Roberts, G. O. (1999). Bayesian inference
+//              for partially observed stochastic epidemics. 
+//              J. R. Statist. Soc. A 162, 121--129.
+//
+// Note:        No incubation times (i.e. fixed at a value epsilon) 
+//              and exponential infection times.
+// See also:    oneill.data
+
+(options 
+	seed=		2004   //fix seed value
+	incuTimePDF=	constant //Fixed at a value epsilon -- specifed in data
+	infTimePDF=	exp    //Ex, i.e. first param of Gamma fixed @ 1
+	diagTimePDF=	none   //No diagnostic times here!!
+	meanVar=	false  //Mean variance representation of periods.
+	ignoreE= 	false  //Fixed incu so E events not parametric!!
+	ignoreI= 	false  //ignore all inf times in the data file?
+	ignoreD= 	true   //ignore all sero times in the data file?
+)
+
+(method mcmc
+	samples=2500 
+	thin=1
+	burnin=10000
+	betaRWsigma=0.1   //not really used in a one unit setup
+	betaNRWsigma=0.1  //not used in a one unit setup. 
+	gammaERWsigma=3  //was 1
+	deltaERWsigma=1  //0.1
+	gammaIRWsigma=1  //0.25
+	deltaIRWsigma=1  //0.1
+	gammaDRWsigma=3  //4
+	deltaDRWsigma=1  //0.1
+	ERWsigma=6 //5
+)
+
+

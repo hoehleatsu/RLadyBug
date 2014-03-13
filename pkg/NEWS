@@ -1,0 +1,141 @@
+==========================
+Version:  0.7-1
+Release date:  16 Feb 2013
+==========================
+
+Tried to fix onLoad and other warnings when running R CMD check --as-cran.
+Goal is to get RLadyBug back on CRAN.
+
+==========================
+Version:  0.7-0
+Release date:  12 Jun 2012
+==========================
+  
+* All twinSIR functionality, which has been added since version 0.5 of RLadyBug
+  has now moved to the 'surveillance' package. The RLadyBug package therefore essentially
+  rolled back to version 0.4-3.
+
+
+==========================
+Version: 0.6-1 
+Release date:  22 Apr 2010
+==========================
+
+* Fixed small bug using equidistant penalization for non-equidistant knots
+  in twinSIR.  For 1st order penalty the Equations in Fahrmeir & Lang (2001)
+  are used -- see p. 206 of the article.
+  The fix has little influence on the results.
+
+* Removed 'extended' argument in 'grep' calls for compatibility with R 2.11.0.
+
+* Changed definition of S4-generic "R0":
+  replaced second argument 'experiment' with '...'
+  
+* function 'animate' is now S3-generic
+
+
+==========================
+Version: 0.6-0 
+Release date:  22 Jun 2009
+==========================
+
+* All changes in this version concern the spatialSIR part of the package,
+  which was introduced with version 0.5-0.
+  
+* Renamed function spatialSIR to twinSIR and function simSpatialSIR to
+  simEpidata. Also renamed all spatialSIR*.R[d] files to twinSIR*.R[d].
+  
+* Enhanced print.summary.twinSIR to inform about simulated penalty weights.
+
+* Restructured Rd-files concerning twinSIR: moved methods to own
+  twinSIR_methods.Rd together with AIC.
+  
+* Bugfixes for R < 2.8.0: simplify argument in 'by' function exists only since
+  R-2.8.0, semi-transparency exists only since 2.7.0.
+
+* Computational improvement in the fitting procedure: removed redundant
+  aggregations in the log-likelihood function.
+
+* Computational improvement in the simulation procedure: pre-allocation of big
+  evHist matrix (with automatic enlargements if necessary during simulation)
+  leads to about 90% time reduction!
+  
+* Bugfix in 'twinSIR': 'knots' must be stop times and not necessarily event
+  times.
+  
+* New function 'intersperse', which imputes blocks for extra stop times in 
+  objects inheriting from class "epidata".
+  
+* 'animate' and 'stateplot' now also work with "summary.epidata" objects and
+  'plot.epidata' is now a wrapper for 'plot.summary.epidata'.
+  
+* Changed default value for 'optim.args$par' (initial parameter values) in
+  'twinSIR' from the unit vector to zeros for 'beta' (endemic) coefficients
+  and 1's for 'alpha' (epidemic) coefficients.
+  
+* Simulation now stops, when the overall infection intensity has a numerically
+  infinite value as concurrent events are not allowed.  In contrast, simulation
+  now does not end just because all individuals are removed.
+
+* REML based estimation of the smoothing parameter lambda.smooth in twinSIR.
+  Some arguments are currently hardcoded.
+
+
+==========================
+Version: 0.5-1 
+Release date:  5 Jun 2009
+==========================
+
+* All changes in this version concern the spatialSIR part of the package,
+  which was introduced with version 0.5-0.
+
+* Bugfix: simulation of epidemic data did not work when all covariates
+  were time constant.  Added an example for this simple case in the
+  documentation.
+
+* New plotting function 'stateplot', which illustrates the state changes for
+  a selected individual during the course of an epidemic.
+  
+* Introduced [.epidata method, which drops class "epidata" if necessary, i.e.
+  if the resulting subset would not be a valid "epidata" object.
+
+* Generalized the simulation function, the methods for "epidata" objects and
+  the function intensityPlot so that epidemics with re-susceptibility (i.e.
+  SIRS and SIS) can be handled.  This also includes a more detailed summary
+  method with its own print method.
+  
+* Improved handling of meta data in CITATION file (wish of K. Hornik).
+
+* Changed java loading mechanism of the package (make use of .jpackage instead
+  of .jinit and added java parameter -Xrs to avoid R crash when sending the
+  CTRL-C signal).
+
+* Renamed ".BLOCK." column in the "epidata" class to "BLOCK".
+
+* Truncated lines in plot.epidata to not let them reach beyond the observation
+  period of the epidemic.
+  
+* Simulation now also works with start time != 0. Also I0.col and coords.cols
+  can now be NULL, if there are no initially infected individuals or if the is
+  no spatial component in the epidemic, respectively.
+  
+* Major computational improvement in the fitting procedure: removed redundant
+  aggregations in the score function, which leads to about 80% time reduction.
+  
+* Bugfix: functions AIC.epidata and extractAIC.epidata now pass argument k and
+  nsim to the internal .OSAICpenalty function.
+
+
+==========================
+Version:	0.5-0 
+Release date:	2 Feb 2009
+==========================
+
+* Package now contains functionality for fitting the spatial SIR model
+  proposed in Hoehle (2008). The model consists of endemic and
+  epidemic components modelled by a multivariate counting process
+  having additive-multiplicative intensity function. The important new
+  functions for this model are: spatialSIR and simSpatialSIR.
+  Also new data classes (S3) are defined for handling the results
+  from estimation and simulation.
+

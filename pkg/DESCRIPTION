@@ -1,0 +1,16 @@
+Package: RLadyBug
+Version: 0.7-1
+Date: 2013-02-16
+Title: Analysis of Infectious Diseases using Stochastic Epidemic Models
+Author: Michael Hoehle and Ulrike Feldmann with contributions by Sebastian Meyer
+Maintainer: Michael Hoehle <hoehle@stat.uni-muenchen.de>
+Depends: R (>= 2.6.0), methods, rJava (>= 0.5), coda
+Imports: graphics, stats, grDevices, utils, MASS, boa
+Description: Analysis of small scale infectious disease data using stochastic
+             Susceptible-Exposed-Infectious-Recovered (SEIR) models.
+             The R package wraps functionality of the Java program LadyBug,
+             i.e. a Java virtual machine has to be installed on your computer.
+License: file LICENSE
+URL: http://www.stat.uni-muenchen.de/~hoehle/software/RLadyBug
+LazyLoad: yes
+ZipData: no

@@ -1,0 +1,61 @@
+//                              \./
+//                             (o o)
+//-------------------------oOOo-(_)-oOOo-------------------------
+// Author: 	Michael Hoehle <hoehle@stat.uni-muenchen.de>
+// Date: 	5 April 2004
+// Description:	Use MCMC to estimate parameters in the smallpox epidemic
+//              of Abakaliki, Nigeria also treated in the article: 
+//              ONeill, P. D. and Roberts, G. O. (1999). Bayesian inference
+//              for partially observed stochastic epidemics. 
+//              J. R. Statist. Soc. A 162, 121--129.
+//
+// Note:        No incubation times and exponential infection times.
+// See also:    mcmc.sir
+//
+unit 1 1 119 1
+beta 0 0 (0.1)
+//Nothing spatial in the example on so values here do not matter
+betan 0.001 0.001 (0.005)
+//Incubation fixed at some small value epsilon 
+incu constant 0.00001
+//Exponential distribution so a Gamma(1,gamma) distrib - non inf prior
+inf 1 1	(1) 0 0 (0.1)
+//No diagnostic times so values do not matter
+diag 1 1 (1)	1 1 (1)
+//////////////////////////////////////////////////////////////////////
+//The data: Initial infection times have to yield a valid start 
+//configuration. E and D values do not matter since
+//the E values are fixed according to "incu constant" and D is
+//not part of the model. Manual I values are very biased so a large burn-in
+//is chosen.
+//x     y       E(ignore)  I    R       D (ignore)
+1	1	0	  (-11)	0	0
+1	1	0	  (-10)	13	0 
+1	1	0	  (-10)	20	0
+1	1	0	  (-10)	22	0
+1	1	0	  (-10)	25	0
+1	1	0	  (-10)	25	0
+1	1	0	  (-10)	25	0
+1	1	0	  (-10)	26	0
+1	1	0	  (-10)	30	0
+1	1	0	  (-10)	35	0
+1	1	0	  (-10)	38	0
+1	1	0	  (-10)	40	0
+1	1	0	  (-10)	40	0
+1	1	0	  (-10)	42	0
+1	1	0	  (-10)	42	0
+1	1	0	  (-10)	47	0
+1	1	0	  (-10)	50	0
+1	1	0	  (-10)	51	0
+1	1	0	  (-10)	55	0
+1	1	0	  (-10)	55	0
+1	1	0	  (-10)	56	0
+1	1	0	  (-10)	57	0
+1	1	0	  (-10)	58	0
+1	1	0	  (-10)	60	0
+1	1	0	  (-10)	60	0
+1	1	0	  (-10)	61	0
+1	1	0	  (-10)	66	0
+1	1	0	  (-10)	66	0
+1	1	0	  (-10)	71	0
+1	1	0	  (-10)	76	0

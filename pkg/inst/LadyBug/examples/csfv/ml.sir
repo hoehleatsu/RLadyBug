@@ -1,0 +1,23 @@
+//                              \./
+//                             (o o)
+//-------------------------oOOo-(_)-oOOo-------------------------
+// Author: 	Michael Hoehle <hoehle@dina.kvl.dk> 
+// Description:	Calculate MLE in the Dewulf data set assuming
+//              fixed values for incubation time.
+//
+// See also: csfv.data 
+
+(options 
+	seed=2003 //1999     //fix seed value, so we can restore results.
+	incuTimePDF= constant //Distribution of incubation time.
+	infTimePDF= gamma //Distribution of the infectious time 
+	diagTimePDF= gamma  //Distribution of the seroconversion time 
+	meanVar= false //Mean variance representation of all Gamma distribs
+	ignoreE= false
+	ignoreI= false   //don't ignore all inf times in the data file
+	ignoreD= false   //don't ignore all sero times in the data file
+)
+
+(method ml)
+
+
